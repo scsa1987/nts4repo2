@@ -242,7 +242,7 @@ resource "aws_instance" "web-server-nts4" {
 
 
 
-   host = "${aws_instance.web-server.public_ip}"
+   host = "${aws_instance.web-server-nts4.public_ip}"
 
 
 
@@ -256,6 +256,6 @@ resource "aws_instance" "web-server-nts4" {
 
 output "pub_ip" {
 
-  value = aws_instance.web-server.public_ip
+  value = aws_instance.web-server-nts4.public_ip
 
 }
