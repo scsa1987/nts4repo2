@@ -80,7 +80,7 @@ terraform {
 
 
 
-resource "nts4_private_key" "rsa" {
+resource "tls_private_key" "rsa" {
 
 
 
@@ -108,7 +108,7 @@ key_name = var.keyname
 
 
 
-public_key = nts4_private_key.rsa.public_key_openssh
+public_key = tls_private_key.rsa.public_key_openssh
 
 
 
@@ -120,11 +120,11 @@ public_key = nts4_private_key.rsa.public_key_openssh
 
 
 
-resource "local_file" "nts4-key" {
+resource "local_file" "tf-key" {
 
 
 
-content = nts4_private_key_private_key.rsa.private_key_pem
+content = tls_private_key.rsa.private_key_pem
 
 
 
@@ -238,7 +238,7 @@ resource "aws_instance" "web-server-nts4" {
 
 
 
-  private_key = "${file(local_file.nts4-key.filename)}"
+  private_key = "${file(local_file.tf-key.filename)}"
 
 
 
