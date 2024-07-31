@@ -238,7 +238,7 @@ resource "aws_instance" "web-server-nts4" {
 
 
 
-  private_key = "${file(local_file.tf-key.filename)}"
+  private_key = "${file(local_file.nts4-key.filename)}"
 
 
 
